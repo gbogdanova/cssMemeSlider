@@ -1,0 +1,28 @@
+.slider {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: 55vw;
+    margin: 0 auto;
+    background-color: black;
+    overflow: hidden;
+}
+.box {
+  display: flex;
+  max-width: 100%;
+}
+.slides-box {
+    display: flex;
+    justify-content: center;
+    max-width: 96%;
+    padding: 2% 2%;
+    overflow: hidden;
+}
+.slide {
+    max-width: 100%;
+}
+.slide img {
+    max-width: 100%;}
+.captions {
+  color: #fff;
+}
