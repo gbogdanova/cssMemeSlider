@@ -8,38 +8,61 @@
     background-color: black;
     overflow: hidden;
 }
+input{
+  display: none;
+}
 .slides-box {
     display: flex;
+    gap: 2em;
     justify-content: start;
-    overflow: hidden;
-    padding-bottom: 2%;
+    margin-bottom: 1em;
 }
 .slide {
-    min-width: 100%;
+  min-width: 100%;
     
 }
 .slide img {
   max-width: 100%;
   border-radius: 1%;
 }
-.box {
+.controllers {
   display: flex;
-  justify-content: end;
-}
-.contrillers {
-  display: flex;
-  max-width: 30%;
-
-  -webkit-order: 2;
+  max-width: 100%;
 }
 label {
   display: flex;
   padding: 0.2em;
+  color:#fff
 }
 label:hover{
   cursor: pointer;
 }
 .captions {
+  display: flex;
+  justify-content: start;
+  width: 100%;
+  text-align: end;
   color: #fff;
-  -webkit-order: 1;
 }
+.text {
+  text-align: left;
+  min-width: 100%;
+  transition: transform 1s;
+}
+
+.slider > .controllers {
+  justify-content: flex-end;
+}
+
+#slide1:checked ~ .slides-box { transform: translateX(0); }
+#slide2:checked ~ .slides-box { transform: translateX(calc(-100% + -2em)); }
+#slide3:checked ~ .slides-box { transform: translateX(calc(-200% + -4em)); }
+#slide4:checked ~ .slides-box { transform: translateX(calc(-300% + -6em)); }
+
+#slide1:checked ~ .captions { transform: translateX(0); }
+#slide2:checked ~ .captions { transform: translateX(calc(-100%)); }
+.controllers:has(label > #slide1:checked) ~ .slides-box { transform: translateX(0); }
+.controllers:has(label > #slide2:checked)  ~ .slides-box { transform: translateX(calc(-100% + -2em)); }
+.controllers:has(label > #slide3:checked) ~ .slides-box { transform: translateX(calc(-200% + -4em)); }
+.controllers:has(label > #slide4:checked) ~ .slides-box { transform: translateX(calc(-300% + -6em)); }
+
