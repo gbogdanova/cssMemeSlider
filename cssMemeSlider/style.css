@@ -28,9 +28,11 @@ input{
 }
 .controllers {
   display: flex;
-  margin-top: -1em;
   gap: 0.1em;
   background-color: black;
+}
+.slider > .controllers {
+  justify-content: flex-end;
 }
 label {
   display: flex;
@@ -53,6 +55,7 @@ label:hover{
   display: flex;
   justify-content: start;
   width: 50%;
+  margin-top: -1.5em;
   gap: 30em;
   text-align: end;
   color: #fff;
@@ -62,8 +65,27 @@ label:hover{
   text-align: left;
   min-width: 100%;
 }
-.slider > .controllers {
-  justify-content: flex-end;
+
+@media (max-width: 800px){
+  .slider > .controllers {
+    justify-content: center;
+  }
+  .slider{
+    max-width: 50vw;
+    gap: 0.6em;
+  }
+  .slides-box {
+    margin-bottom: 0;
+  }
+  .captions {
+    margin: -0.2em 0 0.3em 0;
+  }
+}
+@media (max-width: 500px){
+  .slider{
+  max-width: 100%;
+  padding: 3%;
+  }
 }
 
 input[id="slide1"]:checked ~ .controllers label[for="slide1"],
