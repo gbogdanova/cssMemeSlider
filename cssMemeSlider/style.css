@@ -1,0 +1,107 @@
+.slider {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 30vw;
+  margin: 0 auto;
+  padding: 1%;
+  padding-bottom: 2%;
+  background-color: black;
+  overflow: hidden;
+}
+input{
+  display: none;
+}
+.slides-box {
+  display: flex;
+  gap: 2em;
+  justify-content: start;
+  margin-bottom: 1em;
+  transition: transform 0.5s;
+}
+.slide {
+  min-width: 100%;
+}
+.slide img {
+  max-width: 100%;
+  border-radius: 1%;
+}
+.controllers {
+  display: flex;
+  gap: 0.1em;
+  background-color: black;
+}
+.slider > .controllers {
+  justify-content: flex-end;
+}
+label {
+  display: flex;
+  gap: 0.1em;
+  padding: 0.2em;
+  width: 0.3em;
+  height: 0.3em;
+  border: 0.4em solid black;
+  background-color: rgb(0, 213, 255);
+  outline: 0.15em solid rgb(0, 213, 255);
+  outline-offset: -0.45em;
+  border-radius: 50%;
+}
+label:hover{
+  cursor: pointer;
+  background-color: white;
+  outline: 0.15em solid white;
+}
+.captions {
+  display: flex;
+  justify-content: start;
+  width: 50%;
+  margin-top: -1.3em;
+  gap: 30em;
+  text-align: end;
+  color: #fff;
+  transition: transform 0.5s;
+}
+.text {
+  text-align: left;
+  min-width: 100%;
+}
+
+@media (max-width: 800px){
+  .slider > .controllers {
+    justify-content: center;
+  }
+  .slider{
+    max-width: 50vw;
+    gap: 0.6em;
+  }
+  .slides-box {
+    margin-bottom: 0;
+  }
+  .captions {
+    margin: -0.2em 0 1em 0;
+  }
+}
+@media (max-width: 500px){
+  .slider{
+  max-width: 100%;
+  padding: 3%;
+  }
+}
+
+input[id="slide1"]:checked ~ .controllers label[for="slide1"],
+input[id="slide2"]:checked ~ .controllers label[for="slide2"],
+input[id="slide3"]:checked ~ .controllers label[for="slide3"],
+input[id="slide4"]:checked ~ .controllers label[for="slide4"]{
+  background-color: black;
+}
+
+#slide1:checked ~ .slides-box { transform: translateX(0); }
+#slide2:checked ~ .slides-box { transform: translateX(calc(-100% + -2em)); }
+#slide3:checked ~ .slides-box { transform: translateX(calc(-200% + -4em)); }
+#slide4:checked ~ .slides-box { transform: translateX(calc(-300% + -6em)); }
+
+#slide1:checked ~ .captions { transform: translateX(0); }
+#slide2:checked ~ .captions { transform: translateX(calc(-100% + -30em)); }
+#slide3:checked ~ .captions { transform: translateX(calc(-200% + -60em)); }
+#slide4:checked ~ .captions { transform: translateX(calc(-300% + -90em)); }
+
